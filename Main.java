@@ -69,11 +69,25 @@ public class Main {
                 compRasping = rasping[j];
             }
         }
-        generalScore = userRasping.winnerIs(compRasping);
+        while(true){
+        try {
+            generalScore = userRasping.winnerIs(compRasping);
+            break;
+        }catch (NullPointerException e){
+            System.out.println(e.getMessage());
+            continue;
+        }
+        }
+
         if(generalScore == 1){
+
             scores[0]+=1;
+            System.out.println(String.format("User wins: total points %d and total games %d",scores[0],scores[2] + 1));
         }if(generalScore == -1){
             scores[1] +=1;
+            System.out.println(String.format("Computer wins: total points %d and total games %d",scores[1],scores[2]+1));
+        }if(generalScore == 0){
+            System.out.println(String.format("Round ties : total games %d",scores[2]+1));
         }
         scores[2]+=1;
         return scores;

@@ -6,9 +6,9 @@ public enum Game {
         public int winnerIs(Game rasping) throws NullPointerException {
             int point = 0;
             if(rasping == PAPER){
-                point = 1;
-            }if(rasping == SCISSORS){
                 point = -1;
+            }if(rasping == SCISSORS){
+                point = 1;
             }if(rasping == ROCK){
             }
             return point;
