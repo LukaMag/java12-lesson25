@@ -5,9 +5,9 @@ public enum Game {
         @Override
         public int winnerIs(Game rasping) throws NullPointerException {
             int point = 0;
-            if(rasping == PAPER){
+            if(rasping == PAPER || rasping == SPOCK){
                 point = -1;
-            }if(rasping == SCISSORS){
+            }if(rasping == SCISSORS || rasping == LIZARD){
                 point = 1;
             }if(rasping == ROCK){
             }
@@ -18,9 +18,9 @@ public enum Game {
         @Override
         public int winnerIs(Game rasping)throws NullPointerException {
             int point = 0;
-            if(rasping == SCISSORS){
+            if(rasping == SCISSORS || rasping == LIZARD){
                 point = -1;
-            }if(rasping == ROCK){
+            }if(rasping == ROCK || rasping == SPOCK){
                 point = 1;
             }if(rasping == PAPER){
             }
@@ -32,14 +32,47 @@ public enum Game {
         public int winnerIs(Game rasping)throws NullPointerException {
             int point = 0;
             if(rasping == SCISSORS){
-            }if(rasping == ROCK){
+            }
+            if(rasping == ROCK || rasping == SPOCK){
                 point = -1;
-            }if(rasping == PAPER){
+            }
+            if(rasping == PAPER || rasping == LIZARD){
+                point = 1;
+            }
+            return point;
+        }
+        },
+    LIZARD("Lizard",4){
+        @Override
+        public int winnerIs(Game rasping) throws NullPointerException {
+            int point = 0;
+            if(rasping == LIZARD){
+            }
+            if(rasping == ROCK || rasping == SCISSORS){
+                point = -1;
+            }
+            if(rasping == PAPER || rasping == SPOCK){
+                point = 1;
+            }
+            return point;
+        }
+        },
+    SPOCK("Spock",5){
+        @Override
+        public int winnerIs(Game rasping) throws NullPointerException {
+            int point = 0;
+            if(rasping == SPOCK){
+            }
+            if(rasping == PAPER || rasping == LIZARD){
+                point = -1;
+            }
+            if(rasping == ROCK || rasping == SCISSORS){
                 point = 1;
             }
             return point;
         }
     };
+
 
     private String name;
     private int id;
